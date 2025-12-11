@@ -402,6 +402,11 @@
               <i class="bi bi-circle"></i><span>Registration form</span>
             </a>
           </li>
+           <li>
+            <a href="index.php?page=report_list">
+              <i class="bi bi-circle"></i><span>Report list</span>
+            </a>
+          </li>
         </ul>
       </li><!-- End Tables Nav -->
 
@@ -562,6 +567,9 @@
                             case 'report_form';
                             include 'modules/report_form.php';
                             break;
+                                case 'report_list';
+                                include 'modules/report_list.php';
+                                break;
     }
    }
    ?>

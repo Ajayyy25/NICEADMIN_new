@@ -6,11 +6,12 @@ if (isset($_POST{'btn-submit'})){
 $crime_type = $_POST['crime_type'];
 $date = $_POST['incident_date'];
 $location = $_POST['crime_location'];
-$suspect = $_POST['persons_involved'];
+$victim = $_POST['crime_victim'];
+$suspect = $_POST['crime_suspect'];
 $narrative = $_POST['brief_narrative'];
 
-$sql = "INSERT INTO tbl_report (crime_type, date, location, suspect, narrative)
-VALUES ('$crime_type', '$date', '$location', '$suspect', '$narrative')";
+$sql = "INSERT INTO tbl_report (crime_type, date, location, victim_name, suspect_name, narrative)
+VALUES ('$crime_type', '$date', '$location','$victim', '$suspect', '$narrative')";
 
 if ($conn->query($sql) === TRUE) {
   echo '<script>alert("New record added successfully");</script>';
@@ -46,9 +47,14 @@ $conn->close();
     <input type="text" class="form-control" name="crime_location" placeholder="Street, Sitio, Zone">
   </div>
 
-  <div class="col-12">
-    <label class="form-label">Persons Involved</label>
-    <input type="text" class="form-control" name="persons_involved" placeholder="Victim / Suspect names">
+  <div class="col-6">
+    <label class="form-label">Victim</label>
+    <input type="text" class="form-control" name="crime_victim" placeholder="Victim names">
+  </div>
+
+  <div class="col-6">
+    <label class="form-label">Suspect</label>
+    <input type="text" class="form-control" name="crime_suspect" placeholder="Suspect names">
   </div>
 
   <div class="col-12">
